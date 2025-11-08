@@ -6,17 +6,18 @@
     <title>FoodQuality AI - Food Quality Assessment</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <style>
         :root {
-            --primary-color: #2C9F45;
-            --secondary-color: #3A7CA5;
-            --accent-color: #F9A826;
-            --text-color: #333333;
-            --light-bg: #F8F9FA;
+            --primary-color: #C84869;
+            --secondary-color: #4B7CE1;
+            --accent-color: #FF7F00;
+            --text-color: #FFFFFF;
+            --light-bg: rgba(0, 0, 0, 0.3);
             --white: #FFFFFF;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            --border-radius: 20px;
         }
         
         * {
@@ -26,31 +27,41 @@
         }
         
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: "Didact Gothic", sans-serif;
             color: var(--text-color);
             line-height: 1.6;
-            background-color: var(--light-bg);
-            padding-bottom: 2rem;
+            background-image: url("../assets/pexels-hartonosbg-34607690.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            padding: 0;
         }
         
         .header {
-            background-color: var(--white);
-            box-shadow: var(--shadow);
-            padding: 1rem 2rem;
+            background-color: black;
+            padding: 1rem 0;
             display: flex;
             align-items: center;
             justify-content: space-between;
             margin-bottom: 2rem;
+            width: 100%;
+            box-sizing: border-box;
         }
         
         .logo {
             display: flex;
             align-items: center;
             gap: 0.75rem;
+            padding-right: 2rem;
         }
         
         .logo-icon {
-            color: var(--primary-color);
+            color: var(--white);
             font-size: 1.5rem;
             font-weight: bold;
         }
@@ -58,13 +69,15 @@
         .logo-text {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--primary-color);
+            color: var(--white);
+            font-family: "Didact Gothic", sans-serif;
         }
         
         .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 0 1rem;
+            flex: 1;
         }
         
         .hero {
@@ -73,31 +86,40 @@
         }
         
         .hero h1 {
-            font-size: 2.5rem;
+            font-size: 60px;
             margin-bottom: 1rem;
-            color: var(--primary-color);
+            color: white;
+            font-family: "Didact Gothic", sans-serif;
+            font-weight: 700;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
         }
         
         .hero p {
-            font-size: 1.1rem;
+            font-size: 16px;
             max-width: 700px;
             margin: 0 auto;
-            color: #666;
+            color: white;
+            font-family: "Didact Gothic", sans-serif;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
         }
         
         .upload-section {
-            background-color: var(--white);
+            background-color: rgba(255, 255, 255, 0.1);
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
             padding: 2rem;
             margin-bottom: 2rem;
             text-align: center;
+            backdrop-filter: blur(3px);
         }
         
         .upload-section h2 {
-            font-size: 1.8rem;
+            font-size: 32px;
             margin-bottom: 1.5rem;
-            color: var(--secondary-color);
+            color: white;
+            font-family: "Didact Gothic", sans-serif;
+            font-weight: 700;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
         }
         
         .upload-container {
@@ -120,7 +142,7 @@
             justify-content: center;
             width: 100%;
             padding: 1.5rem;
-            background-color: rgba(44, 159, 69, 0.1);
+            background-color: rgba(200, 72, 105, 0.2);
             border: 2px dashed var(--primary-color);
             border-radius: var(--border-radius);
             cursor: pointer;
@@ -128,12 +150,13 @@
         }
         
         .file-input-label:hover {
-            background-color: rgba(44, 159, 69, 0.15);
+            background-color: rgba(200, 72, 105, 0.3);
         }
         
         .file-input-label span {
-            font-size: 1.1rem;
-            color: var(--primary-color);
+            font-size: 16px;
+            color: var(--white);
+            font-family: "Didact Gothic", sans-serif;
         }
         
         #fileInput {
@@ -152,14 +175,15 @@
             color: var(--white);
             border: none;
             border-radius: var(--border-radius);
-            font-size: 1rem;
+            font-size: 16px;
             font-weight: 600;
+            font-family: "Didact Gothic", sans-serif;
             cursor: pointer;
             transition: all 0.3s ease;
         }
         
         .upload-btn:hover {
-            background-color: #237a36;
+            background-color: #a03a55;
         }
         
         .upload-btn:disabled {
@@ -168,17 +192,21 @@
         }
         
         .results-section {
-            background-color: var(--white);
+            background-color: rgba(255, 255, 255, 0.1);
             border-radius: var(--border-radius);
-            box-shadow: var (--shadow);
+            box-shadow: var(--shadow);
             padding: 2rem;
             display: none;
+            backdrop-filter: blur(3px);
         }
         
         .results-section h2 {
-            font-size: 1.8rem;
+            font-size: 32px;
             margin-bottom: 1.5rem;
-            color: var (--secondary-color);
+            color: white;
+            font-family: "Didact Gothic", sans-serif;
+            font-weight: 700;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
             text-align: center;
         }
         
@@ -202,13 +230,21 @@
             box-shadow: var(--shadow);
         }
         
+        .next-action-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin-top: 20px;
+        }
+        
         .data-container {
             flex: 1;
             min-width: 300px;
         }
         
         .data-card {
-            background-color: #f5f7fa;
+            background-color: rgba(255, 255, 255, 0.15);
             border-left: 4px solid var(--accent-color);
             border-radius: var(--border-radius);
             padding: 1.5rem;
@@ -216,9 +252,12 @@
         }
         
         .data-card h3 {
-            font-size: 1.2rem;
+            font-size: 24px;
             margin-bottom: 0.5rem;
-            color: var(--secondary-color);
+            color: white;
+            font-family: "Didact Gothic", sans-serif;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
         }
         
         .data-item {
@@ -227,7 +266,7 @@
             justify-content: space-between;
             margin-bottom: 0.5rem;
             padding-bottom: 0.5rem;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
         
         .data-item:last-child {
@@ -238,13 +277,18 @@
         
         .data-label {
             font-weight: 600;
+            font-family: "Didact Gothic", sans-serif;
+            color: var(--white);
+            font-size: 16px;
         }
         
         .data-value {
-            background-color: rgba(58, 124, 165, 0.1);
+            background-color: rgba(75, 124, 225, 0.3);
             padding: 0.25rem 0.75rem;
             border-radius: 25px;
-            font-size: 0.9rem;
+            font-size: 16px;
+            font-family: "Didact Gothic", sans-serif;
+            color: var(--white);
         }
         
         .loader {
@@ -256,24 +300,22 @@
         .loader-spinner {
             width: 40px;
             height: 40px;
-            border: 4px solid rgba(44, 159, 69, 0.2);
+            border: 4px solid rgba(200, 72, 105, 0.2);
             border-top: 4px solid var(--primary-color);
             border-radius: 50%;
             animation: spin 1s linear infinite;
             margin: 0 auto 1rem;
         }
         
+        .loader p {
+            font-family: "Didact Gothic", sans-serif;
+            color: var(--white);
+            font-size: 16px;
+        }
+        
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
-        }
-        
-        .footer {
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 3rem;
-            color: #666;
-            font-size: 0.9rem;
         }
         
         @media (max-width: 768px) {
@@ -282,64 +324,200 @@
             }
             
             .hero h1 {
-                font-size: 2rem;
+                font-size: 40px;
             }
         }
 
         .back-button {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 6px;
-            padding: 8px 15px;
+            height: 51px;
+            padding: 0 20px;
             background-color: var(--primary-color);
             color: var(--white);
             border: none;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            font-weight: 600;
+            border-radius: 0;
+            font-size: 20px;
+            font-weight: 400;
+            font-family: "Didact Gothic", sans-serif;
             cursor: pointer;
             text-decoration: none;
-            transition: all 0.2s ease;
-            margin-right: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: color 0.3s ease;
+            margin: 0;
         }
         
-        .back-button:hover {
-            background-color: #237a36;
-            transform: translateX(-3px);
+        .back-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(255, 255, 255);
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+        
+        .back-button:hover::before {
+            left: 0;
+        }
+        
+        .back-button span {
+            position: relative;
+            z-index: 2;
+            transition: color 0.3s ease;
+        }
+        
+        .back-button:hover span {
+            color: var(--primary-color);
         }
         
         .back-arrow {
             font-size: 1.2rem;
         }
 
-        .status-image-container {
+        /* Animated Pop-up Modal */
+        .popup-overlay {
             display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .popup-overlay.show {
+            display: flex;
+        }
+        
+        .popup-content {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.15));
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 40px 50px;
             text-align: center;
-            margin-top: 20px;
-            padding: 15px;
-            background-color: rgba(255, 255, 255, 0.7);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            animation: popupBounce 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+            will-change: transform;
         }
         
-        .status-image {
-            width: 120px;
-            height: auto;
-            margin-bottom: 10px;
+        .popup-icon {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+            will-change: transform;
         }
         
-        .status-text {
-            font-size: 1.2rem;
-            font-weight: 600;
+        .popup-icon.thumbs-up {
+            animation: thumbUpAnimation 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .popup-icon.thumbs-down {
+            animation: thumbDownAnimation 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .popup-text {
+            font-size: 28px;
+            font-weight: 700;
+            font-family: "Didact Gothic", sans-serif;
             margin: 0;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
         }
         
-        .status-text.good {
-            color: var(--primary-color);
+        .popup-text.good {
+            color: #4B7CE1;
         }
         
-        .status-text.bad {
+        .popup-text.bad {
             color: #E53935;
+        }
+        
+        .popup-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            font-size: 20px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            font-family: "Didact Gothic", sans-serif;
+        }
+        
+        .popup-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes popupBounce {
+            0% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+            60% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes thumbUpAnimation {
+            0% {
+                transform: scale(0) translateY(20px);
+                opacity: 0;
+            }
+            60% {
+                transform: scale(1.1) translateY(-5px);
+            }
+            100% {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes thumbDownAnimation {
+            0% {
+                transform: scale(0) translateY(-20px);
+                opacity: 0;
+            }
+            60% {
+                transform: scale(1.1) translateY(5px);
+            }
+            100% {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
         }
     </style>
 </head>
@@ -386,13 +564,8 @@
                 <div class="image-container">
                     <img id="uploadedImage" src="" alt="Uploaded food image">
                     
-                    <div class="status-image-container" id="status-container">
-                        <img id="statusImage" src="" alt="Food Quality Status" class="status-image">
-                        <p id="statusText" class="status-text">Status</p>
-                    </div>
-                    
                     <!-- Add Find Nearest Drop-off button -->
-                    <div class="next-action-container" id="next-action" style="display: none; margin-top: 20px;">
+                    <div class="next-action-container" id="next-action" style="display: none;">
                         <a href="map.html" class="upload-btn" style="text-decoration: none;">Find Nearest Drop-off Location</a>
                     </div>
                 </div>
@@ -441,10 +614,15 @@
         </section>
     </div>
     
-    <!-- <footer class="footer">
-        <p>&copy; 2025 FoodQuality AI. All rights reserved.</p>
-    </footer> -->
-
+    <!-- Animated Pop-up Modal -->
+    <div class="popup-overlay" id="popup-overlay">
+        <div class="popup-content">
+            <button class="popup-close" onclick="closePopup()">×</button>
+            <img id="popup-icon" src="" alt="Status" class="popup-icon">
+            <p id="popup-text" class="popup-text">Status</p>
+        </div>
+    </div>
+    
     <script>
         const fileInput = document.getElementById('fileInput');
         const fileNameDisplay = document.getElementById('file-name');
@@ -537,30 +715,19 @@
                             document.getElementById('quantity').textContent = "Not available";
                         }
 
-                        const statusContainer = document.getElementById('status-container');
-                        const statusImage = document.getElementById('statusImage');
-                        const statusText = document.getElementById('statusText');
-                        
+                        // Show animated pop-up based on quality
                         if (analysis.quality) {
                             const quality = analysis.quality.toLowerCase();
                             
-                            statusContainer.style.display = 'block';
-                            
                             if (quality === 'good' || quality === 'very good' || quality === 'excellent') {
-                                statusImage.src = '../assets/thumb-up.png';
-                                statusText.textContent = 'Food Approved';
-                                statusText.className = 'status-text good';
-                                
-                                document.getElementById('next-action').style.display = 'block';
+                                showPopup('../assets/thumb-up.png', 'Food Approved', 'good');
+                                // Only show drop-off button if food is edible
+                                document.getElementById('next-action').style.display = 'flex';
                             } else if (quality === 'unhealthy' || quality === 'bad' || quality.includes("can't determine")) {
-                                statusImage.src = '../assets/thumb-down.png';
-                                statusText.textContent = 'Food Not Recommended';
-                                statusText.className = 'status-text bad';
-                            } else {
-                                statusContainer.style.display = 'none';
+                                showPopup('../assets/thumb-down.png', 'Food Not Recommended', 'bad');
+                                // Hide drop-off button if food is not edible
+                                document.getElementById('next-action').style.display = 'none';
                             }
-                        } else {
-                            statusContainer.style.display = 'none';
                         }
                     } else {
                         document.getElementById('dish-name').textContent = "Unknown";
@@ -593,6 +760,43 @@
             const i = Math.floor(Math.log(bytes) / Math.log(k));
             return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
         }
+        
+        function showPopup(iconSrc, message, type) {
+            const popupOverlay = document.getElementById('popup-overlay');
+            const popupIcon = document.getElementById('popup-icon');
+            const popupText = document.getElementById('popup-text');
+            
+            popupIcon.src = iconSrc;
+            popupText.textContent = message;
+            popupText.className = 'popup-text ' + type;
+            popupIcon.className = 'popup-icon ' + (type === 'good' ? 'thumbs-up' : 'thumbs-down');
+            
+            popupOverlay.classList.add('show');
+            
+            // Auto-close after 4 seconds
+            setTimeout(() => {
+                closePopup();
+            }, 4000);
+        }
+        
+        function closePopup() {
+            const popupOverlay = document.getElementById('popup-overlay');
+            popupOverlay.classList.remove('show');
+        }
+        
+        // Close popup when clicking outside
+        document.getElementById('popup-overlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePopup();
+            }
+        });
+        
+        // Close popup with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closePopup();
+            }
+        });
     </script>
 </body>
 </html>
